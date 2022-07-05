@@ -1,28 +1,17 @@
-/* import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-} */
-
 import { Component } from "react";
+
+class Input extends Component{
+
+  render() {
+    return (
+      <input
+        value={this.props.value}
+        onChange={ this.props.onChange }   
+      />
+    )
+  }
+
+}
 
 
 class Button extends Component {
@@ -60,7 +49,12 @@ class Button extends Component {
 class App extends Component{
 
   state = {
-    valor: 3
+    nombre: "",
+    apellido: "",
+  }
+
+  updateValues = (prop, value) =>{
+    this.setState({[prop]: value})
   }
 
   //retornar contenido jsx
@@ -69,6 +63,16 @@ class App extends Component{
     return(
       <div>
         <p>Hola mundo</p>
+        <p>{`${this.state.nombre} ${this.state.apellido}`}</p>
+        <Input 
+          value={this.state.nombre} 
+          onChange={ e => this.updateValues('nombre', e.target.value) }
+        />
+        <Input 
+          value={this.state.apellido}
+          onChange={ e => this.updateValues('apellido', e.target.value) } 
+        />
+
         { this.state.valor === 3
             ?<Button caminar={true} />
             : null
