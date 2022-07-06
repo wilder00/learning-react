@@ -1,27 +1,17 @@
 
-//Los uncontrolled components no se encuentran sincronizados con la interface
+import { useState } from 'react'
 
 function App() {
-
-  const submit = (e)=>{
-    e.preventDefault();
-    const data = Array.from(new FormData(e.target))
-    console.log(Object.fromEntries(data));
+  const [value, setValue] = useState('')
+  const handleChange = (e)=>{
+    setValue(e.target.value)
   }
-
+  console.log(value);
   return (
-    <form onSubmit={submit}>
-      <div>
-        <span>
-          lala
-        </span>
-        <input name="campo" />
-      </div>
-
-      <input name="campo-2" />
-      <input type={'file'} name="archivo" />
-      <input type='submit' value="enviar" />
-    </form>
+    <div>
+      <input type='text' name="normal" value={value} onChange={handleChange} /> <br/>
+      { value.length < 5 ? <span>Longitud minima de 5</span> : null}
+    </div>
   );
 }
 
