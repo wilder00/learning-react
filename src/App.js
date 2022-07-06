@@ -1,86 +1,29 @@
-/* import logo from './logo.svg';
-import './App.css';
+
 
 function App() {
+
+  //Manejo de formularios con evento no controlado
+  const submit = (e)=>{
+    e.preventDefault();
+    const data = Array.from(new FormData(e.target))
+    console.log(Object.fromEntries(data));
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-} */
-
-import { Component } from "react";
-
-
-class Button extends Component {
-  state = {
-  }
-  constructor(props){
-    super(props)
-    console.log('constructor', props);
-  }
-
-  
-  componentDidMount() {
-    console.log("componentDidMount");
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log("componentDidUpdate", prevProps, prevState );
-  }
-
-  componentWillUnmount(){
-    console.log('Desmontando componente', this.props, this.state);
-  }
-  
-  render() {
-    console.log("Ejecutando método render de button");
-    return(
-      <button onClick={ ()=>this.setState({ edad: 21 }) }>
-        Enviar
-      </button>
-    )
-  }
-}
-
-
-class App extends Component{
-
-  state = {
-    valor: 3
-  }
-
-  //retornar contenido jsx
-  render() {
-    console.log(this.state);
-    return(
+    <form onSubmit={submit}>
       <div>
-        <p>Hola mundo</p>
-        { this.state.valor === 3
-            ?<Button caminar={true} />
-            : null
-          }
-        <button
-          onClick={ ()=> this.setState({valor: 2}) }
-        >
-          Enviar desde el App
-        </button>
+        <span>
+          lala
+        </span>
+        <input name="campo" />
       </div>
-    )
-  }
+
+      <input name="campo-2" />
+      <input type='submit' value="enviar" />
+    </form>
+  );
 }
+
+
 
 export default App;
