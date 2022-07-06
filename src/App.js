@@ -2,11 +2,11 @@
 import { useState } from 'react'
 
 function App() {
-  const [value, setValue] = useState({ normal:'default', texto: '', chancho: ''})
-  const handleChange = (e)=>{
+  const [value, setValue] = useState({ normal:'default', texto: '', chancho: '', check: false})
+  const handleChange = ({target})=>{
     setValue((vals)=>({
       ...vals,
-      [e.target.name]: e.target.value
+      [target.name]: target.type === 'checkbox'? target.checked : target.value
     }))
   }
   console.log(value);
@@ -23,6 +23,17 @@ function App() {
         <option value='chanchitoTriste'>Chanchito Triste</option>
         <option value='Felipe'> Felipe </option>
       </select>
+      <br/>
+      <br/>
+
+      <input
+        type='checkbox'
+        name='check'
+        onChange={handleChange}
+        checked={ value.check }
+      /> Acepta termino y condiciones
+
+
     </div>
   );
 }
