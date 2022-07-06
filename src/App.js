@@ -1,35 +1,27 @@
-import { useRef } from 'react';
+
+//Los uncontrolled components no se encuentran sincronizados con la interface
 
 function App() {
 
-  const input = useRef()
-  const file = useRef()
-  
-  const submit = ()=>{
-
-    console.log(input.current.value);
-    console.log(file.current);
-
-    const form = new FormData();
-    form.append('archivo', file.current.files[0])
-    form.append('campo', input.current.value)
-
-    fetch('/lala', {method: 'POST', body: form})
+  const submit = (e)=>{
+    e.preventDefault();
+    const data = Array.from(new FormData(e.target))
+    console.log(Object.fromEntries(data));
   }
 
   return (
-    <div >
+    <form onSubmit={submit}>
       <div>
         <span>
           lala
         </span>
-        <input type="text" name="campo" ref={input} />
-        <input type="file"  ref={file} />
+        <input name="campo" />
       </div>
 
-      {/* <input name="campo-2" /> */}
-      <input type='submit' value="enviar" onClick={submit} />
-    </div>
+      <input name="campo-2" />
+      <input type={'file'} name="archivo" />
+      <input type='submit' value="enviar" />
+    </form>
   );
 }
 
