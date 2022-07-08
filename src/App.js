@@ -2,7 +2,7 @@
 import { useState } from 'react'
 
 function App() {
-  const [value, setValue] = useState({ normal:'default', texto: '', chancho: '', check: false})
+  const [value, setValue] = useState({ normal:'default', texto: '', chancho: '', check: false, estado: 'feliz'})
   const handleChange = ({target})=>{
     setValue((vals)=>({
       ...vals,
@@ -33,6 +33,15 @@ function App() {
         checked={ value.check }
       /> Acepta termino y condiciones
 
+      <br/>
+      <br/>
+
+      <div>
+        <label>Chancho: </label>
+        <input onChange={ handleChange } name="estado" type="radio" value="feliz" checked={value.estado === 'feliz'} /> Feliz
+        <input onChange={ handleChange } name="estado" type="radio" value="triste" checked={value.estado === 'triste'} /> Triste
+        <input onChange={ handleChange } name="estado" type="radio" value="felipe" checked={value.estado === 'felipe'} /> Felipe
+      </div>
 
     </div>
   );
