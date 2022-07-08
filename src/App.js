@@ -15,13 +15,13 @@ const App = ()=>{
     ])
   }
 
-  console.log(formulario, usuarios);
+  console.log( usuarios);
   return (
     <div style={{ marginTop: '15%'}}>
       <Container>
         <Card>
           <div style={{ padding: 20 }}>
-            <UserForm />
+            <UserForm submit={submit} />
           </div>
         </Card>
         <Card>
