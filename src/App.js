@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import './App.css'
 
 const P = styled.p`
@@ -28,6 +28,20 @@ const BlockButton = styled(Button)`
   &.secondary{
     background-color: #a49876;
   }
+`
+
+const girar = keyframes`
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+`
+
+const Rotar = styled.div`
+  animation: ${girar} 2s ease infinite;
+  display: inline-block;
 `
 
 const Link = ({ className, ...props}) => {
@@ -68,6 +82,8 @@ const App = () => {
       <StyledLink>Link con estilo</StyledLink>
       <Input></Input>
       <Password></Password>
+      <br/>
+      <Rotar>asdf</Rotar>
     </Content>
   )
 }
