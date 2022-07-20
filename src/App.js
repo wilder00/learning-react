@@ -38,6 +38,20 @@ const StyledLink = styled(Link)`
   color: blue;
 `
 
+const Input = styled.input.attrs(props => ({
+  type: 'text',
+  color: props.color || 'red'
+}))`
+  font-size: 20px;
+  border: 10px solid green;
+  color: ${ props => props.color}
+`
+
+const Password = styled(Input).attrs({
+  type: 'password'
+})``
+
+
 const App = () => {
   const [isPrimary, setIsPrimary] = useState(false)
   console.log(
@@ -52,6 +66,8 @@ const App = () => {
       <BlockButton className="secondary" as="a" href="#" primary={!isPrimary} onClick={e => setIsPrimary(!isPrimary)}> Enviar </BlockButton>
       <Link className="link">link</Link>
       <StyledLink>Link con estilo</StyledLink>
+      <Input></Input>
+      <Password></Password>
     </Content>
   )
 }
