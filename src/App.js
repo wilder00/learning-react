@@ -1,5 +1,5 @@
 import './App.css'
-import {  Routes, Route, useNavigate , NavLink, useMatch, useParams } from 'react-router-dom'
+import {  Routes, useLocation, Route, useNavigate , NavLink, useMatch, useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 
 const Redirect = ({ to }) => {
@@ -11,6 +11,9 @@ const Redirect = ({ to }) => {
   return null
 }
 
+const useQuery = () =>{
+  return new URLSearchParams(useLocation().search)
+}
 
 const Proyecto = ()=>{
   const match = useMatch("/portafolio/:proyecto_id")
@@ -79,6 +82,11 @@ const Portafolio = () =>{
 
 
 const App = () => {
+  const query = useQuery()
+  const play = query.get('play')
+  const name = query.get('name')
+  console.log("query: ", query, "play: ", play, "name: ", name);
+
   return (
     <div>
       <nav>
