@@ -105,14 +105,6 @@ const App = () => {
             }
           />
           
-          <Route path="*"
-            element={
-              <span>
-                404: ruta no encontrada
-                </span>
-            }
-          />
-          
         </Routes>
       </section>
     </div>
