@@ -1,10 +1,12 @@
 import './App.css'
-import {  Routes, Route, NavNavLink, NavLink, useMatch, useParams } from 'react-router-dom'
+import {  Routes, Route, Link, useMatch, useParams } from 'react-router-dom'
 
 const Proyecto = ()=>{
   const match = useMatch("/portafolio/:proyecto_id")
   const params = useParams();
   const { proyecto_id } = params;
+  console.log("el match: ", match);
+  console.log("el params: ", params );
   return (
     <h2> Proyecto id: {proyecto_id}</h2>
   )
@@ -12,21 +14,22 @@ const Proyecto = ()=>{
 
 const Portafolio = () =>{
   const match = useMatch("/portafolio/*")
+  console.log("match en Portfolio", match);
   return (
     <div>
       <h1> Portafolio </h1>
       <ul>
         <li>
-          <NavLink to={`${match.pathnameBase}/proyecto-1`}>Proyecto 1 </NavLink>
+          <Link to={`${match.pathnameBase}/proyecto-1`}>Proyecto 1 </Link>
         </li>
         <li>
-          <NavLink className={({ isActive }) => "nav-link" + (isActive ? " activated" : "")} to="proyecto-2">Proyecto 2 </NavLink>
+          <Link to="proyecto-2">Proyecto 2 </Link>
         </li>
         <li>
-          <NavLink to="54">Proyecto id 54 </NavLink>
+          <Link to="54">Proyecto id 54 </Link>
         </li>
         <li>
-          <NavLink to="105">Proyecto id 105 </NavLink>
+          <Link to="105">Proyecto id 105 </Link>
         </li>
       </ul>
 
@@ -67,10 +70,10 @@ const App = () => {
       <nav>
         <ul>
           <li>
-            <NavLink to="/">Inicio</NavLink>
+            <Link to="/">Inicio</Link>
           </li>
           <li>
-            <NavLink to="/portafolio">Portafolio</NavLink>
+            <Link to="/portafolio">Portafolio</Link>
           </li>
         </ul>
       </nav>

@@ -45,3 +45,11 @@
 a{
   color: bisque
 }
+
+.active{
+  color: rgb(24, 238, 24);
+}
+
+.activated{
+  color:rgb(255, 162, 0)
+}
