@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 const Redirect = ({ to }) => {
   let navigate = useNavigate()
   useEffect(() => {
-      navigate(to) //para redirigir antenrior se le para -1, al siguiente es 1 como parámetro
+      navigate(to)
   })
 
   return null
