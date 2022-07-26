@@ -1,16 +1,5 @@
 import './App.css'
-import {  Routes, Route, useNavigate , NavLink, useMatch, useParams } from 'react-router-dom'
-import { useEffect } from 'react'
-
-const Redirect = ({ to }) => {
-  let navigate = useNavigate()
-  useEffect(() => {
-      navigate(to)
-  })
-
-  return null
-}
-
+import {  Routes, Route, NavNavLink, NavLink, useMatch, useParams } from 'react-router-dom'
 
 const Proyecto = ()=>{
   const match = useMatch("/portafolio/:proyecto_id")
@@ -23,12 +12,6 @@ const Proyecto = ()=>{
 
 const Portafolio = () =>{
   const match = useMatch("/portafolio/*")
-  let loggedIn = false;
-
-  if(!loggedIn){
-    return <Redirect to="/" />
-  }
-
   return (
     <div>
       <h1> Portafolio </h1>
