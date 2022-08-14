@@ -65,6 +65,7 @@ const App = () => {
       {/* cambiando la etiqueta con la que se renderiza */}
       <BlockButton className="secondary" as="a" href="#" primary={!isPrimary} onClick={e => setIsPrimary(!isPrimary)}> Enviar </BlockButton>
       <Link className="link">link</Link>
+      <span>learn react</span>
       <StyledLink>Link con estilo</StyledLink>
       <Input></Input>
       <Password></Password>
